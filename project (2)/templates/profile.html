@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+    {% block main %}
+
+        <h1>@{{profile.username}}'s profile </h1>
+
+        <div class="row">
+        {% for review in reviews %}
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src= "data:;base64,{{review.image}}"  alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title">{{review.album_title}}</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Artist: {{review.artist_name}}</h4>
+                    <h6 class="card-subtitle mb-2 text-info">@{{profile.username}}</h6>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{review.rating}} / 10</li>
+                    <li class="list-group-item">{{review.review}}</li>
+                </ul>
+            </div>
+        {% endfor %}
+        </div>
+
+
+{% endblock %}

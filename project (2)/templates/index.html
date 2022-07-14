@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Feed
+{% endblock %}
+
+    {% block main %}
+        <h1></h1>
+
+        <div class="row">
+        {% for review in reviews %}
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src= "data:;base64,{{review.image}}" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-subtitle mb-2 text-muted">Artist: {{review.artist_name}}</h4>
+                <h6 class="card-subtitle mb-2 text-info">@{{review.username}}</h6>
+                <p class="card-text"><small class="text-muted">{{review.time}}</small></p>
+            </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{review.rating}} / 10</li>
+                <li class="list-group-item">{{review.review}}</li>
+            </ul>
+            </div>
+    {% endfor %}
+    </div>
+
+
+{% endblock %}
